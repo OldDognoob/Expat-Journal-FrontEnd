@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 const NewYorkImage = require("../ProjectImages/NewYork.jpg");
 
 const StyledLeft = styled.div`
-  width: 50%;
+  width: 60%;
   h1 {
     font-family: "Roboto Condensed", serif;
     font-size: 3.5rem;
@@ -30,12 +30,12 @@ const StyledButton = styled.button`
   padding: 10px 15px;
   background-color: #2da561;
   color: #fff;
-  width: 180px;
+  width: 150px;
   border: 1px solid #2da561;
   padding: 1rem;
   line-height: 1;
   margin: 1rem;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-right: 40px;
   border-radius: 4px;
   font-size: 2rem;
@@ -52,7 +52,7 @@ const StyledButton = styled.button`
 `;
 
 const StyledRight = styled.div`
-  width: 50%;
+  width: 60%;
   h1 {
     padding-bottom: 3rem;
     font-family: "Roboto Condensed", serif;
@@ -71,11 +71,13 @@ const StyledContainer = styled.div`
   padding-bottom: 100px;
   background-image: url(${NewYorkImage});
   background-repeat: no-repeat;
+  background-size:100% 100%;
   @media screen and (max-width: 500px) {
     display: flex;
     flex-direction: column;
   }
 `;
+
 
 export default function WelcomePage(props) {
   const history=useHistory();
