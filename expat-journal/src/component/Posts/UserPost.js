@@ -57,6 +57,7 @@ export default connect(mapStateToProps, { deletePost,getUserPosts })(UserPosts);
 const StyledPost = styled.div`
   border: 1px solid black;
   box-shadow: 0px 0px 22px -1px rgba(87, 81, 87, 0.65);
+  background-color:#CFDEF3;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
