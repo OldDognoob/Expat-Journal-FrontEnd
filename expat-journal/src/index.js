@@ -1,21 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./components/App";
+import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose, combineReducers, } from "redux";
 import thunk from "redux-thunk";
 import * as serviceWorker from './serviceWorker';
-import {journalReducer} from "./State/reducers";
+import {entryReducer} from "./reducers/EntryReducer";
+import {postReducer} from "./reducers/PostReducer"
 
 //STEP 4 Use combineReducers from REDUX to make a single reducer
-const combinedReducer = combineReducers({
-    journal:journalReducer
+const journalReducer = combineReducers({
+    entry:entryReducer,
+    post:postReducer
 });
+
 
 //STEP 5 Use createStore from REDUX to create a state store
 const store = createStore(
-    journalReducer,
+  journalReducer,
     compose(
         applyMiddleware(thunk),
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
