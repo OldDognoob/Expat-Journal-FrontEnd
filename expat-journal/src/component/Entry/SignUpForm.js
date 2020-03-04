@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
   padding-top: 100px;
   background-repeat: no-repeat;
   padding-bottom: 200px;
-  background-image: url(${japanImage});
+  /* background-image: url(${japanImage}); */
   background-repeat: no-repeat;
   background-size:100% 100%;
   
