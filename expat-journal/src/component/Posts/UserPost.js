@@ -1,11 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getUserPosts } from "../../State/actionCreators";
+import { deletePost, getUserPosts } from "../../State/actionCreators";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
+import { useHistory } from "react-router-dom";
 
 const UserPosts = props => {
+  const history = useHistory();
+
+  const handleEdit = e => {
+    e.preventDefault();
+    console.log(props);
+    props.history.push(`/updatePost/${props.id}`);
+  };
+
+  const handleDelete = e => {
+    e.preventDefault();
+    console.log("delete Post!", props.id);
+    props.deletePost(props.id);
+  };
+
   return (
     <Link to={`/browser/${props.post.id}`}>
       <div className="post-card-container">
@@ -19,6 +33,12 @@ const UserPosts = props => {
           </h3>
           <h4>{props.post.location}</h4>
           <h4>{props.post.message}</h4>
+          <button onClick={handleEdit} className="hover-grow">
+            🖋
+          </button>
+          <button onClick={handleDelete} className="hover-grow">
+            ✖
+          </button>
         </StyledPost>
       </div>
     </Link>
@@ -27,11 +47,12 @@ const UserPosts = props => {
 
 const mapStateToProps = state => {
   return {
-    // isLoadingUserPosts:state.postReducer.isLoadingUserPosts,
-    // userPosts:state.postReducer.userPosts
+    isDeletingPost:state.post.isDeletingPost,
+    error:state.post.error,
+    posts:state.post.posts
   };
 };
-export default connect(mapStateToProps, { getUserPosts })(UserPosts);
+export default connect(mapStateToProps, { deletePost,getUserPosts })(UserPosts);
 
 const StyledPost = styled.div`
   border: 1px solid black;
@@ -44,7 +65,7 @@ const StyledPost = styled.div`
   text-align: center;
   align-self: flex-start;
   max-width: 350px;
-  margin:20px;
+  margin: 20px;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 5px 1px 20px grey;
