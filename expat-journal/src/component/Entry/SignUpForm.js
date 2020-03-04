@@ -5,10 +5,16 @@ import { register } from "../../State/actionCreators";
 
 import styled from "styled-components";
 
+const japanImage = require("../ProjectImages/japan.jpg");
+
 const StyledContainer = styled.div`
   padding-top: 100px;
   background-repeat: no-repeat;
   padding-bottom: 200px;
+  background-image: url(${japanImage});
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  
 `;
 const StyledInput = styled.input`
   margin: 1rem;
@@ -66,7 +72,8 @@ const StyledSignUp = styled.form`
   border-radius: 0.25rem;
   margin: 0 auto;
   height: 700px;
-  background-color: rgba(255, 255, 255, 0.9);
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  background-color:#CFDEF3;
   font-family: "Roboto", sans-serif;
   text-align: center;
   padding-left: 20px;
