@@ -1,0 +1,36 @@
+//Step 2 Design the types of Action that the State might suffer
+//Get Posts
+export const GET_POSTS_START = 'GET_POSTS_START'
+export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
+export const GET_POSTS_FAILURE = 'GET_POSTS_FAILURE'
+
+//get user posts
+export const GET_USER_POSTS_START = 'GET_USER_POSTS_START'
+export const GET_USER_POSTS_SUCCESS = 'GET_USER_POSTS_SUCCESS'
+export const GET_USER_POSTS_FAILURE = 'GET_USER_POSTS_FAILURE'
+
+//Add a post
+export const ADD_POST_START = 'ADD_POST_START'
+export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS'
+export const ADD_POST_FAILURE = 'ADD_POST_FAILURE'
+
+
+//Update post
+export const UPDATE_POST_START = 'UPDATE_POST_START'
+export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS'
+export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE'
+
+//Deleting post
+export const DELETE_POST_START = 'DELETE_POST_START'
+export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS'
+export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE'
+
+//User login
+export const LOGIN_START = 'LOGIN_START'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+
+//User register
+export const REGISTER_START = 'REGISTER_START'
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
+export const REGISTER_FAILURE = 'REGISTER_FAILURE'
