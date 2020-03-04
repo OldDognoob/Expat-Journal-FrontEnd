@@ -4,10 +4,17 @@ import { connect } from "react-redux";
 import { login } from "../../State/actionCreators";
 import styled from "styled-components";
 
+const romeImage = require("../ProjectImages/rome.jpg");
+
+
 const StyledContainer = styled.div`
   padding-top: 100px;
   background-repeat: no-repeat;
   padding-bottom: 200px;
+  background-image: url(${romeImage});
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  
 `;
 
 const StyledLogin = styled.div`
