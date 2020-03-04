@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { getUserPosts } from "../../State/actionCreators";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { Card, Image } from "semantic-ui-react";
+
 
 const UserPosts = props => {
   return (
@@ -12,7 +12,7 @@ const UserPosts = props => {
         <StyledPost className="styled-card">
           <img
             className="post-card-image"
-            src="https://unsplash.com/photos/xnKJ1mJ9-_w"
+            src="https://images.unsplash.com/photo-1456603719096-e977bdc92571?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
           />
           <h3>
             {props.post.first_name} {props.post.last_name}
@@ -51,6 +51,10 @@ const StyledPost = styled.div`
   font-size: 1.1rem;
   transition: 0.5s;
   color: black;
+  img {
+    width: 100%;
+  }
   &:hover {
     transform: scale(1.05);
+  }
 `;

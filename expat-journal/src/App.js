@@ -8,10 +8,10 @@ import SignUpForm from "../src/component/Entry/SignUpForm";
 import PrivateRoute from "./utils/PrivateRoute";
 import Nav from "./component/Navigation/Nav";
 import WelcomePage from "./component/Home/WelcomePage";
-import UserPost from "./component/Posts/UserPosts";
+import UserPost from "./component/Posts/UserPost";
 import CreatePost from "./component/Posts/CreatePost";
 import UpdatePost from "../src/component/Posts/UpdatePost";
-import Browse from "../src/component/Home/Browse";
+import Browse from "./component/Home/Browse";
 
 function App() {
   return (
