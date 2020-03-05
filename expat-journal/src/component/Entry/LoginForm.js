@@ -1,12 +1,10 @@
-import React,{useEffect} from "react";
-import {useHistory}from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../State/actionCreators";
 import styled from "styled-components";
 
-
 const romeImage = require("../ProjectImages/rome.jpg");
-
 
 const StyledContainer = styled.div`
   padding-top: 200px;
@@ -14,10 +12,8 @@ const StyledContainer = styled.div`
   padding-bottom: 200px;
   background-image: url(${romeImage});
   background-repeat: no-repeat;
-  background-size:100% 100%;
+  background-size: 100% 100%;
   margin: 0 auto;
-  
-  
 `;
 
 const StyledLogin = styled.div`
@@ -27,7 +23,7 @@ const StyledLogin = styled.div`
   margin: 0 auto;
   height: 400px;
   background-color: rgba(255, 255, 255, 0.9);
-  opacity:0.7;
+  opacity: 0.7;
   font-family: "Roboto", sans-serif;
   text-align: left;
   padding-left: 24px;
@@ -92,52 +88,49 @@ const StyledButton = styled.button`
   }
 `;
 
-const LoginForm = (props) => {
+const LoginForm = props => {
   const [credentials, setCredentials] = React.useState({});
-  const{login,isFetching,isLoggedIn}=props
+  const { login, isFetching, isLoggedIn } = props;
   const history = useHistory();
 
-   useEffect(() =>{
-     if(isLoggedIn){
-     history.push('/posts');
-     }
-   },[isLoggedIn])
+  useEffect(() => {
+    if (isLoggedIn) {
+      history.push("/posts");
+    }
+  }, [isLoggedIn]);
 
   const handleChange = e => {
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value
     });
-    
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     console.log(credentials);
     login(credentials);
-      
   };
-  if(isFetching) return (<h3>Register...</h3>)
+  if (isFetching) return <h3>Register...</h3>;
   return (
     <StyledContainer>
       <StyledLogin>
-      <form onSubmit={handleSubmit} onChange={handleChange}>
-      <h2>Login</h2>
-      <StyledInput name="email" type="text" placeholder="email" />
-      <StyledInput name="password" type="password" placeholder="password" />
-      <StyledButton type="submit">Log In</StyledButton>
-    </form>
+        <form onSubmit={handleSubmit} onChange={handleChange}>
+          <h2>Login</h2>
+          <StyledInput name="email" type="text" placeholder="email" />
+          <StyledInput name="password" type="password" placeholder="password" />
+          <StyledButton type="submit">Log In</StyledButton>
+        </form>
       </StyledLogin>
     </StyledContainer>
-    
   );
 };
 function mapStateToProps(state) {
   console.log(state);
   return {
-    isLoggedIn:state.entry.isLoggedIn,
+    isLoggedIn: state.entry.isLoggedIn,
     isFetching: state.entry.isFetching,
-    user:state.entry.user
+    user: state.entry.user
   };
 }
 export default connect(mapStateToProps, { login })(LoginForm);

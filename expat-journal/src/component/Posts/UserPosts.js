@@ -6,25 +6,23 @@ import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/AxiosWithAuth";
 import { useHistory, useParams } from "react-router-dom";
 
+
+
 const UserPosts = props => {
-  
   const history = useHistory();
 
+  const handleEdit = e => {
+    e.preventDefault();
+    console.log(props);
+    history.push(`/updatePost/${props.post.id}`);
+  };
 
-    const handleEdit = e => {
-      e.preventDefault();
-      console.log(props);
-      history.push(`/updatePost/${props.post.id}`)
-      };
+  const handleDelete = e => {
+    e.preventDefault();
+    console.log("delete Post!", props.post.id);
+    props.deletePost(props.post.id);
+  };
 
-      const handleDelete = e => {
-        e.preventDefault();
-        console.log('delete Post!', props.post.id)
-        props.deletePost(props.post.id);
-      };
-
-
- 
   const { id } = useParams();
 
   // const handleEdit = event => {
@@ -32,12 +30,11 @@ const UserPosts = props => {
   //   history.push(`/updatePost/${id}`);
   // };
 
- 
   // const handleDelete = event => {
   //   event.preventDefault(id);
   //   history.push(-1);
   //    }
- 
+
   return (
     <Link to={`/browser/${props.post.id}`}>
       <div className="post-card-container">
@@ -51,12 +48,15 @@ const UserPosts = props => {
           </h3>
           <h4>{props.post.location}</h4>
           <h4>{props.post.message}</h4>
-          <button onClick={handleEdit} className="hover-grow">
+          <StyledButton onClick={handleEdit} className="hover-grow">
             🖋
-          </button>
-          <button onClick={(e)=>handleDelete(e,props.post.id)} className="hover-grow">
+          </StyledButton>
+          <StyledButton
+            onClick={e => handleDelete(e, props.post.id)}
+            className="hover-grow"
+          >
             ✖
-          </button>
+          </StyledButton>
         </StyledPost>
       </div>
     </Link>
@@ -99,5 +99,34 @@ const StyledPost = styled.div`
   }
   &:hover {
     transform: scale(1.05);
+  }
+`;
+
+const StyledButton = styled.button`
+  padding: 8px 8px;
+  background-color: #2da561;
+  color: #fff;
+  width: 30%;
+  border: 1px solid #2da561;
+  padding: 0.6rem;
+  line-height: 1;
+  background-color: 250ms;
+  margin: 30 40 40 0;
+  border-radius: 2px;
+  font-size: 1rem;
+  display: flex-box;
+  justify-content: space-between;
+
+  @media screen and (max-width: 500px) {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+
+  :hover {
+    cursor: pointer;
+    background-color: white;
+    color: #2da562;
+    border: 1px solid #2da562;
   }
 `;

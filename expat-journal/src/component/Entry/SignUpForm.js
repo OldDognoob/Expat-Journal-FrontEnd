@@ -2,22 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import { register } from "../../State/actionCreators";
 
-
 import styled from "styled-components";
 
 const japanImage = require("../ProjectImages/japan.jpg");
 
 const StyledContainer = styled.div`
-  padding-top: 100px;
+  padding-top: 200px;
   background-repeat: no-repeat;
   padding-bottom: 200px;
-  /* background-image: url("https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
+  background-image: url("https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   /* background-size: cover; */
   background-repeat: no-repeat;
-  background-attachment:fixed!important;
-  background-size:100% 100%;
-  
-  
+  background-attachment: fixed !important;
+  background-size: 100% 100%;
 `;
 const StyledInput = styled.input`
   margin: 1rem;
@@ -76,7 +73,7 @@ const StyledSignUp = styled.form`
   margin: 0 auto;
   height: 600px;
   /* background-color: rgba(255, 255, 255, 0.9); */
-  background-color:#CFDEF3;
+  background-color: #cfdef3;
   opacity: 0.8;
   font-family: "Roboto", sans-serif;
   text-align: center;
@@ -113,8 +110,7 @@ const StyledSignUp = styled.form`
   }
 `;
 
-
-const SignUpForm = ({register, isFetching}) => {
+const SignUpForm = ({ register, isFetching }) => {
   const [credentials, setCredentials] = React.useState({});
 
   const handleChange = e => {
@@ -130,18 +126,22 @@ const SignUpForm = ({register, isFetching}) => {
 
     register(credentials);
   };
-  if(isFetching) return (<h3>Loading...</h3>)
+  if (isFetching) return <h3>Loading...</h3>;
   return (
     <StyledContainer>
       <StyledSignUp>
-      <form onSubmit={handleSubmit} onChange={handleChange}>
-      <StyledInput name="email" type="text" placeholder="email" />
-      <StyledInput name="password" type="password" placeholder="password" />
-      <StyledInput name="confirm_password" type="password" placeholder="confirm_password" />
-      <StyledInput name="first_name" type="text" placeholder="first name" />
-      <StyledInput name="last_name" type="text" placeholder="last name" />
-      <StyledButton type="submit">Sign Up</StyledButton>
-    </form>
+        <form onSubmit={handleSubmit} onChange={handleChange}>
+          <StyledInput name="email" type="text" placeholder="email" />
+          <StyledInput name="password" type="password" placeholder="password" />
+          <StyledInput
+            name="confirm_password"
+            type="password"
+            placeholder="confirm_password"
+          />
+          <StyledInput name="first_name" type="text" placeholder="first name" />
+          <StyledInput name="last_name" type="text" placeholder="last name" />
+          <StyledButton type="submit">Sign Up</StyledButton>
+        </form>
       </StyledSignUp>
     </StyledContainer>
   );
@@ -149,11 +149,11 @@ const SignUpForm = ({register, isFetching}) => {
 function mapStateToProps(state) {
   console.log(state);
   return {
-    isLoggedIn:state.entry.isLoggedIn,
+    isLoggedIn: state.entry.isLoggedIn,
     isFetching: state.entry.isFetching,
     registerError: state.entry.registerError,
-    registerSuccess:state.entry.registerSuccess,
-    user:state.entry.user
+    registerSuccess: state.entry.registerSuccess,
+    user: state.entry.user
   };
 }
 export default connect(mapStateToProps, { register })(SignUpForm);

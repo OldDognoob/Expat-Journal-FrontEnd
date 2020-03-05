@@ -71,7 +71,7 @@ const StyledContainer = styled.div`
   padding-bottom: 100px;
   background-image: url(${NewYorkImage});
   background-repeat: no-repeat;
-  background-size:100% 100%;
+  background-size: 100% 100%;
   @media screen and (max-width: 500px) {
     display: flex;
     flex-direction: column;
@@ -79,14 +79,12 @@ const StyledContainer = styled.div`
 `;
 
 export default function WelcomePage(props) {
-  const history=useHistory();
+  const history = useHistory();
   return (
     <StyledContainer>
       <StyledLeft>
-        <br>
-        </br>
-        <br>
-        </br>
+        <br></br>
+        <br></br>
         <h1>Welcome to Expat Journal</h1>
 
         <StyledButton onClick={() => history.push("/login")}>
