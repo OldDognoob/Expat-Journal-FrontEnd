@@ -9,12 +9,14 @@ const romeImage = require("../ProjectImages/rome.jpg");
 
 
 const StyledContainer = styled.div`
-  padding-top: 100px;
+  padding-top: 200px;
   background-repeat: no-repeat;
   padding-bottom: 200px;
   background-image: url(${romeImage});
   background-repeat: no-repeat;
   background-size:100% 100%;
+  margin: 0 auto;
+  
   
 `;
 
@@ -25,6 +27,7 @@ const StyledLogin = styled.div`
   margin: 0 auto;
   height: 400px;
   background-color: rgba(255, 255, 255, 0.9);
+  opacity:0.7;
   font-family: "Roboto", sans-serif;
   text-align: left;
   padding-left: 24px;
@@ -57,10 +60,14 @@ const StyledLogin = styled.div`
 const StyledInput = styled.input`
   margin: 1rem;
   width: 90%;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
   height: 3.125rem;
   border-radius: 0.25rem;
   border: 1px solid #ced4da;
+  @media screen and (max-width: 500px) {
+    margin: 10px auto;
+  }
 `;
 
 const StyledButton = styled.button`

@@ -74,9 +74,10 @@ const StyledSignUp = styled.form`
   border: 0;
   border-radius: 0.25rem;
   margin: 0 auto;
-  height: 700px;
+  height: 600px;
   /* background-color: rgba(255, 255, 255, 0.9); */
   background-color:#CFDEF3;
+  opacity: 0.8;
   font-family: "Roboto", sans-serif;
   text-align: center;
   padding-left: 20px;
