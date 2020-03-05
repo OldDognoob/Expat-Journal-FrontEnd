@@ -12,7 +12,8 @@ import {postReducer} from "./reducers/PostReducer"
 //STEP 4 Use combineReducers from REDUX to make a single reducer
 const journalReducer = combineReducers({
     entry:entryReducer,
-    post:postReducer
+    post:postReducer,
+    formValues:formReducer,
 });
 
 
