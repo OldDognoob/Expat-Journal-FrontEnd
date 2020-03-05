@@ -44,7 +44,7 @@ const UserPosts = props => {
         <StyledPost className="styled-card">
           <img
             className="post-card-image"
-            src="https://images.unsplash.com/photo-1456603719096-e977bdc92571?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
+            src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
           />
           <h3>
             {props.post.first_name} {props.post.last_name}
@@ -78,6 +78,7 @@ const StyledPost = styled.div`
   border: 1px solid black;
   box-shadow: 0px 0px 22px -1px rgba(87, 81, 87, 0.65);
   background-color: #cfdef3;
+  opacity: 0.7;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

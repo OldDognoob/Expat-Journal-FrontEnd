@@ -21,6 +21,7 @@ const StyledContainer = styled.div`
 const StyledButton = styled.button`
   padding: 8px 12px;
   background-color: #24243e;
+  opacity:0.7;
   color: #fff;
   width: 25%;
   border: 1px solid #22283a;
