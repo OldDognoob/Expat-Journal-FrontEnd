@@ -85,7 +85,7 @@ export const deletePost = id => dispatch => {
       }
     })
     .then(res => {
-      dispatch({ type: types.DELETE_POST_SUCCESS, payload: res.data });
+      dispatch({ type: types.DELETE_POST_SUCCESS, payload:id });
     })
     .catch(err => {
       dispatch({ type: types.DELETE_POST_FAILURE, payload: err.errorMessage });

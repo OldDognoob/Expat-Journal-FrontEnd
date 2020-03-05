@@ -83,6 +83,7 @@ export function postReducer(state = initialState, action) {
       return {
         ...state,
         isUpdatingPost: false,
+        posts: state.posts.concat(action.payload),
         error: null
       };
     case types.UPDATE_POST_FAILURE:
@@ -101,6 +102,7 @@ export function postReducer(state = initialState, action) {
       return {
         ...state,
         isDeletingPost: false,
+        posts:state.posts.filter(post=>post.id!==action.payload),
         error: null
       };
     case types.DELETE_POST_FAILURE:

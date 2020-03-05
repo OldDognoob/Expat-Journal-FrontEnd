@@ -11,14 +11,15 @@ const UserPosts = props => {
   const handleEdit = e => {
     e.preventDefault();
     console.log(props);
-    props.history.push(`/updatePost/${props.id}`);
-  };
+    history.push(`/updatePost/${props.post.id}`)
+    };
 
-  const handleDelete = e => {
-    e.preventDefault();
-    console.log("delete Post!", props.id);
-    props.deletePost(props.id);
-  };
+    const handleDelete = e => {
+      e.preventDefault();
+      console.log('delete Post!', props.post.id)
+      props.deletePost(props.post.id);
+    };
+
 
   return (
     <Link to={`/browser/${props.post.id}`}>
@@ -36,7 +37,7 @@ const UserPosts = props => {
           <button onClick={handleEdit} className="hover-grow">
             🖋
           </button>
-          <button onClick={handleDelete} className="hover-grow">
+          <button onClick={(e)=>handleDelete(e,props.post.id)} className="hover-grow">
             ✖
           </button>
         </StyledPost>

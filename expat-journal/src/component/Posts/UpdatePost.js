@@ -49,8 +49,8 @@ export function UpdatePost({ updatePost }) {
 
 const mapStateToProps = state => {
   return {
-    posts: state.postsReducer.userPosts,
-    isUpdatingPost: state.postsReducer.isUpdatingPost
+    posts: state.post.userPosts,
+    isUpdatingPost: state.post.isUpdatingPost
   };
 };
 
