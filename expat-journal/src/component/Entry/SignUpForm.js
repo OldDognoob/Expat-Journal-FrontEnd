@@ -11,9 +11,12 @@ const StyledContainer = styled.div`
   padding-top: 100px;
   background-repeat: no-repeat;
   padding-bottom: 200px;
-  /* background-image: url(${japanImage}); */
+  /* background-image: url("https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
+  /* background-size: cover; */
   background-repeat: no-repeat;
+  background-attachment:fixed!important;
   background-size:100% 100%;
+  
   
 `;
 const StyledInput = styled.input`
@@ -28,16 +31,16 @@ const StyledInput = styled.input`
   }
 `;
 
-// const StyledSelect = styled.select`
-//   margin: 1rem;
-//   width: 90%;
-//   margin-bottom: 20px;
-//   height: 3.125rem;
+const StyledSelect = styled.select`
+  margin: 1rem;
+  width: 90%;
+  margin-bottom: 20px;
+  height: 3.125rem;
 
-//   @media screen and (max-width: 500px) {
-//     border: 1px solid #ced4da;
-//   }
-// `;
+  @media screen and (max-width: 500px) {
+    border: 1px solid #ced4da;
+  }
+`;
 
 const StyledButton = styled.button`
   padding: 15px 15px;
@@ -67,7 +70,7 @@ const StyledButton = styled.button`
 `;
 
 const StyledSignUp = styled.form`
-  width: 500px;
+  width: 470px;
   border: 0;
   border-radius: 0.25rem;
   margin: 0 auto;

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import UserPosts from "../Posts/UserPost";
-import { getPosts } from "../../State/actionCreators";
+import { connect } from 'react-redux';
+import UserPosts from "../Posts/UserPosts";
+import {getPosts} from "../../State/actionCreators";
 import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
+import Grid from '@material-ui/core/Grid';
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
@@ -13,7 +13,9 @@ const StyledContainer = styled.div`
   background-image: url("https://images.unsplash.com/photo-1470074558764-4e577e98bc85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80");
   background-size: cover;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size:100% 100%;
+  
+  
 `;
 
 const StyledButton = styled.button`
@@ -48,39 +50,38 @@ const StyledButton = styled.button`
   }
 `;
 
+
 function Browse(props) {
-  const { isLoadingPosts, getPosts, posts } = props;
+  const{isLoadingPosts,getPosts,posts} = props
 
   useEffect(() => {
-    getPosts();
+  getPosts();
   }, []);
-
-  if (isLoadingPosts) return <p>Loading...</p>;
+  
+if(isLoadingPosts)return(<p>Loading...</p>)
 
   return (
     <StyledContainer>
       <div className="post-card-parent">
-        <h1>Posts</h1>
-        <Link to="/createPost">
-          <StyledButton>CreatePost</StyledButton>
-        </Link>
-        <Grid container justify="center" spacing={4} className="post-cards">
-          {posts.map(post => (
-            <Grid key={post.id} item>
-              <UserPosts post={post} />
-            </Grid>
-          ))}
+      <h1>Posts</h1>
+      <Link to='/createPost'><StyledButton>CreatePost</StyledButton></Link>
+      <Grid container justify="center" spacing={4} className="post-cards">
+        {posts.map(post => (
+          <Grid key={post.id} item>
+         <UserPosts post={post} />
         </Grid>
-      </div>
+        ))}
+      </Grid>
+    </div>
     </StyledContainer>
+    
   );
 }
-
 const mapStateToProps = state => {
-  return {
-    isLoadingPosts: state.post.isLoadingPosts,
-    posts: state.post.posts
-  };
+  return{
+    isLoadingPosts:state.post.isLoadingPosts,
+    posts:state.post.posts
+  }
 };
 
 export default connect(mapStateToProps, { getPosts })(Browse);

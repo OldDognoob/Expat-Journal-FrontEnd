@@ -37,7 +37,7 @@ export const createPost = post => dispatch => {
       dispatch({ type: types.ADD_POST_SUCCESS, payload: response.data });
     })
     .catch(error => {
-      console.log(error);
+      console.log(error.response);
       dispatch({ type: types.ADD_POST_FAILURE, payload: error.errorMessage });
     });
 };
@@ -60,21 +60,49 @@ export const editPost = (post, id) => dispatch => {
       });
     });
 };
-export const updatePost = post => dispatch => {
-  dispatch({ type: types.UPDATE_POST_START });
+
+export const updatePost = (post, id, message, location) => {
+  return dispatch => { 
+  dispatch ({type: types.UPDATE_POST_START})
   axiosWithAuth()
-    .put(`https://expat-journals.herokuapp.com/api/v1/journals/:id`, post)
+    .put(`https://expat-journals.herokuapp.com/api/v1/journals/${id}`, post, {
+      message, 
+      location
+    })
     .then(response => {
-      console.log(response.data);
-      dispatch({ type: types.UPDATE_POST_SUCCESS, payload: response.data });
+      dispatch({ 
+        type: types.UPDATE_POST_SUCCESS, 
+        payload: response.data });
     })
     .catch(error =>
       dispatch({
-        type: types.UPDATE_POST_FAILURE,
-        payload: error
+        type: types.UPDATE_POST_FAILURE,payload:error
       })
     );
-};
+  };
+}
+
+export const handleChange = (e) => dispatch => {
+  const inputValue = e.target.value;
+  const inputName = e.target.name; 
+  dispatch({type: types.INPUT_CHANGE, payload: {inputName, inputValue}})
+}
+// export const updatePost = post => dispatch => {
+//   dispatch({ type: types.UPDATE_POST_START });
+//   axiosWithAuth()
+//     .put(`https://expat-journals.herokuapp.com/api/v1/journals/${post.id}`, post)
+//     .then(response => {
+//       console.log(response.data);
+//       dispatch({ type: types.UPDATE_POST_SUCCESS, payload: post.id });
+//     })
+//     .catch(error =>
+//       dispatch({
+//         type: types.UPDATE_POST_FAILURE,
+//         payload: error
+//       })
+//     );
+// };
+
 export const deletePost = id => dispatch => {
   dispatch({ type: types.DELETE_POST_START });
   const token = localStorage.getItem("token");
@@ -86,6 +114,7 @@ export const deletePost = id => dispatch => {
     })
     .then(res => {
       dispatch({ type: types.DELETE_POST_SUCCESS, payload: id });
+      
     })
     .catch(err => {
       dispatch({ type: types.DELETE_POST_FAILURE, payload: err.errorMessage });
@@ -156,13 +185,11 @@ export const register = credentials => dispatch => {
       dispatch({ type: types.REGISTER_FAILURE, payload });
     });
 };
+
 export const handleSubmit = (formValues, id) => dispatch => {
   dispatch({ type: types.UPDATE_POST_START });
   axiosWithAuth()
-    .put(
-      `https://expat-journals.herokuapp.com/api/v1/journals/${id}`,
-      formValues
-    )
+    .put(`https://expat-journals.herokuapp.com/api/v1/journals/${id}`, formValues)
     .then(response => {
       console.log(response.data);
       dispatch({ type: types.UPDATE_POST_SUCCESS });

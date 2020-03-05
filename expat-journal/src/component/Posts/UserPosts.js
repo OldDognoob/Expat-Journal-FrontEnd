@@ -1,26 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { deletePost, getUserPosts } from "../../State/actionCreators";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { axiosWithAuth } from "../../utils/AxiosWithAuth";
+import { useHistory, useParams } from "react-router-dom";
 
 const UserPosts = props => {
+  
   const history = useHistory();
 
-  const handleEdit = e => {
-    e.preventDefault();
-    console.log(props);
-    history.push(`/updatePost/${props.post.id}`)
-    };
 
-    const handleDelete = e => {
+    const handleEdit = e => {
       e.preventDefault();
-      console.log('delete Post!', props.post.id)
-      props.deletePost(props.post.id);
-    };
+      console.log(props);
+      history.push(`/updatePost/${props.post.id}`)
+      };
+
+      const handleDelete = e => {
+        e.preventDefault();
+        console.log('delete Post!', props.post.id)
+        props.deletePost(props.post.id);
+      };
 
 
+ 
+  const { id } = useParams();
+
+  // const handleEdit = event => {
+  //   event.preventDefault();
+  //   history.push(`/updatePost/${id}`);
+  // };
+
+ 
+  // const handleDelete = event => {
+  //   event.preventDefault(id);
+  //   history.push(-1);
+  //    }
+ 
   return (
     <Link to={`/browser/${props.post.id}`}>
       <div className="post-card-container">
@@ -48,17 +65,19 @@ const UserPosts = props => {
 
 const mapStateToProps = state => {
   return {
-    isDeletingPost:state.post.isDeletingPost,
-    error:state.post.error,
-    posts:state.post.posts
+    isDeletingPost: state.post.isDeletingPost,
+    error: state.post.error,
+    posts: state.post.posts
   };
 };
-export default connect(mapStateToProps, { deletePost,getUserPosts })(UserPosts);
+export default connect(mapStateToProps, { deletePost, getUserPosts })(
+  UserPosts
+);
 
 const StyledPost = styled.div`
   border: 1px solid black;
   box-shadow: 0px 0px 22px -1px rgba(87, 81, 87, 0.65);
-  background-color:#CFDEF3;
+  background-color: #cfdef3;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

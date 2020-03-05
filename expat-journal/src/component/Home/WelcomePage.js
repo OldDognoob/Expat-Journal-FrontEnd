@@ -78,12 +78,15 @@ const StyledContainer = styled.div`
   }
 `;
 
-
 export default function WelcomePage(props) {
   const history=useHistory();
   return (
     <StyledContainer>
       <StyledLeft>
+        <br>
+        </br>
+        <br>
+        </br>
         <h1>Welcome to Expat Journal</h1>
 
         <StyledButton onClick={() => history.push("/login")}>

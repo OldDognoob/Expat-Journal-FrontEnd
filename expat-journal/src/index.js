@@ -7,7 +7,8 @@ import { createStore, applyMiddleware, compose, combineReducers, } from "redux";
 import thunk from "redux-thunk";
 import * as serviceWorker from './serviceWorker';
 import {entryReducer} from "./reducers/EntryReducer";
-import {postReducer} from "./reducers/PostReducer"
+import {postReducer} from "./reducers/PostReducer";
+import {formReducer} from "./reducers/FormReducer";
 
 //STEP 4 Use combineReducers from REDUX to make a single reducer
 const journalReducer = combineReducers({

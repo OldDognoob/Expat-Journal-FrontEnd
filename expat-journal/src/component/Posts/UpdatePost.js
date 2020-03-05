@@ -1,34 +1,26 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { updatePost } from "../../State/actionCreators";
+import * as actionCreators from "../../State/actionCreators";
+import { useHistory, useParams } from "react-router-dom";
+import { axiosWithAuth } from "../../utils/AxiosWithAuth";
 
-export function UpdatePost({ updatePost }) {
-  const [post, setPostValues] = useState({ id: "", message: "", location: "" });
+export function UpdatePost(props) {
+  const history = useHistory();
+  console.log(props);
+  const [post, setPost] = useState({ id: "", message: "", location: "" });
+  const {id} = useParams()
+  
 
-  const handleChange = event => {
-    setPostValues({
-      ...post,
-      [event.target.name]: event.target.value
-    });
-  };
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(post);
-    if (!post.id || !post.message || !post.location) {
-      return alert("!Please update the post!");
-    }
-    updatePost(post);
-  };
   return (
     <div className="update-post">
       <p className="update-title">What you want to add new?</p>
-      <form onSubmit={handleSubmit} className="container">
+      <form className="container">
         <label>
           <input
             type="text"
             name="message"
-            onChange={handleChange}
-            value={post.message}
+            onChange={props.handleChange}
+            value={props.message}
             placeholder="Your new message here.."
           />
         </label>
@@ -36,12 +28,12 @@ export function UpdatePost({ updatePost }) {
           <input
             type="text"
             name="location"
-            onChange={handleChange}
-            value={post.location}
+            onChange={props.handleChange}
+            value={props.location}
             placeholder="Your new location here.."
           />
         </label>
-        <button onClick={handleSubmit}>Update your Post</button>
+        <button type="button" onClick={evt => props.handleSubmit(props.formValues, id)}>Update your Post</button>
       </form>
     </div>
   );
@@ -50,8 +42,9 @@ export function UpdatePost({ updatePost }) {
 const mapStateToProps = state => {
   return {
     posts: state.post.userPosts,
-    isUpdatingPost: state.post.isUpdatingPost
+    isUpdatingPost: state.post.isUpdatingPost,
+    formValues: state.formValues
   };
 };
 
-export default connect(mapStateToProps, { updatePost })(UpdatePost);
+export default connect(mapStateToProps, actionCreators)(UpdatePost);

@@ -56,7 +56,6 @@ export function postReducer(state = initialState, action) {
     case types.ADD_POST_START:
       return {
         ...state,
-        
         isAddingPost: true,
         error: null
       };
@@ -76,21 +75,21 @@ export function postReducer(state = initialState, action) {
     case types.UPDATE_POST_START:
       return {
         ...state,
-        isUpdatingPost: true,
-        error: null
+        isUpdatingPost: true
       };
     case types.UPDATE_POST_SUCCESS:
       return {
         ...state,
         isUpdatingPost: false,
-        posts: state.posts.concat(action.payload),
-        error: null
+        // posts: state.posts.map(post =>{if (post.id === action.payload.id){return action.payload;}else {return post}})
+       
       };
     case types.UPDATE_POST_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isUpdatingPost: false
+        isUpdatingPost: false,
+        
       };
     case types.DELETE_POST_START:
       return {

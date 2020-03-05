@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { login } from "../../State/actionCreators";
 import styled from "styled-components";
 
+
 const romeImage = require("../ProjectImages/rome.jpg");
 
 
@@ -23,8 +24,7 @@ const StyledLogin = styled.div`
   border-radius: 0.25rem;
   margin: 0 auto;
   height: 400px;
-  /* background-color: rgba(255, 255, 255, 0.9); */
-  background-color:#E0EAFC;
+  background-color: rgba(255, 255, 255, 0.9);
   font-family: "Roboto", sans-serif;
   text-align: left;
   padding-left: 24px;
