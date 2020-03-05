@@ -85,7 +85,7 @@ export const deletePost = id => dispatch => {
       }
     })
     .then(res => {
-      dispatch({ type: types.DELETE_POST_SUCCESS, payload:id });
+      dispatch({ type: types.DELETE_POST_SUCCESS, payload: id });
     })
     .catch(err => {
       dispatch({ type: types.DELETE_POST_FAILURE, payload: err.errorMessage });
@@ -155,4 +155,22 @@ export const register = credentials => dispatch => {
       const payload = error.response ? error.response.data : error;
       dispatch({ type: types.REGISTER_FAILURE, payload });
     });
+};
+export const handleSubmit = (formValues, id) => dispatch => {
+  dispatch({ type: types.UPDATE_POST_START });
+  axiosWithAuth()
+    .put(
+      `https://expat-journals.herokuapp.com/api/v1/journals/${id}`,
+      formValues
+    )
+    .then(response => {
+      console.log(response.data);
+      dispatch({ type: types.UPDATE_POST_SUCCESS });
+    })
+    .catch(error =>
+      dispatch({
+        type: types.UPDATE_POST_FAILURE,
+        payload: error
+      })
+    );
 };
