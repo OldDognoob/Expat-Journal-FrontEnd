@@ -6,8 +6,6 @@ import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/AxiosWithAuth";
 import { useHistory, useParams } from "react-router-dom";
 
-
-
 const UserPosts = props => {
   const history = useHistory();
 
@@ -24,16 +22,6 @@ const UserPosts = props => {
   };
 
   const { id } = useParams();
-
-  // const handleEdit = event => {
-  //   event.preventDefault();
-  //   history.push(`/updatePost/${id}`);
-  // };
-
-  // const handleDelete = event => {
-  //   event.preventDefault(id);
-  //   history.push(-1);
-  //    }
 
   return (
     <Link to={`/browser/${props.post.id}`}>

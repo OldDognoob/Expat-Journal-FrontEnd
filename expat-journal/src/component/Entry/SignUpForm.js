@@ -4,17 +4,19 @@ import { register } from "../../State/actionCreators";
 
 import styled from "styled-components";
 
-const japanImage = require("../ProjectImages/japan.jpg");
-
 const StyledContainer = styled.div`
-  padding-top: 200px;
+  padding-top: 210px;
   background-repeat: no-repeat;
   padding-bottom: 200px;
-  background-image: url("https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-  /* background-size: cover; */
-  background-repeat: no-repeat;
-  background-attachment: fixed !important;
+  /* background-image: url("https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-image:cover;
   background-size: 100% 100%;
+  #bg url {
+    position: fixed;
+    margin: auto;
+  }
 `;
 const StyledInput = styled.input`
   margin: 1rem;
@@ -72,7 +74,6 @@ const StyledSignUp = styled.form`
   border-radius: 0.25rem;
   margin: 0 auto;
   height: 600px;
-  /* background-color: rgba(255, 255, 255, 0.9); */
   background-color: #cfdef3;
   opacity: 0.8;
   font-family: "Roboto", sans-serif;
