@@ -4,7 +4,6 @@ import "./App.css";
 
 //import components
 import LoginForm from "../src/component/Entry/LoginForm";
-import SignUpForm from "../src/component/Entry/SignUpForm";
 import PrivateRoute from "./utils/PrivateRoute";
 import Nav from "./component/Navigation/Nav";
 import WelcomePage from "./component/Home/WelcomePage";
@@ -12,6 +11,7 @@ import UserPost from "./component/Posts/UserPosts";
 import CreatePost from "./component/Posts/CreatePost";
 import UpdatePost from "../src/component/Posts/UpdatePost";
 import Browse from "./component/Home/Browse";
+import SignUpPage from "./component/Entry/SignUpPage";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
             <WelcomePage />
           </Route>
           <Route exact path="/register">
-            <SignUpForm />
+            <SignUpPage />
           </Route>
           <Route exact path="/login">
             <LoginForm />

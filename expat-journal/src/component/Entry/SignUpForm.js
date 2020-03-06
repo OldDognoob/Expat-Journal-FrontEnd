@@ -4,14 +4,14 @@ import { register } from "../../State/actionCreators";
 
 import styled from "styled-components";
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
   padding-top: 210px;
   background-repeat: no-repeat;
   padding-bottom: 200px;
-  /* background-image: url("https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
+  background-image: url("https://images.unsplash.com/photo-1542640244-7e672d6cef4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   background-attachment: fixed;
   background-repeat: repeat;
-  background-image:cover;
+  background-image: cover;
   background-size: 100% 100%;
   #bg url {
     position: fixed;
@@ -129,22 +129,20 @@ const SignUpForm = ({ register, isFetching }) => {
   };
   if (isFetching) return <h3>Loading...</h3>;
   return (
-    <StyledContainer>
-      <StyledSignUp>
-        <form onSubmit={handleSubmit} onChange={handleChange}>
-          <StyledInput name="email" type="text" placeholder="email" />
-          <StyledInput name="password" type="password" placeholder="password" />
-          <StyledInput
-            name="confirm_password"
-            type="password"
-            placeholder="confirm_password"
-          />
-          <StyledInput name="first_name" type="text" placeholder="first name" />
-          <StyledInput name="last_name" type="text" placeholder="last name" />
-          <StyledButton type="submit">Sign Up</StyledButton>
-        </form>
-      </StyledSignUp>
-    </StyledContainer>
+    <StyledSignUp>
+      <form onSubmit={handleSubmit} onChange={handleChange}>
+        <StyledInput name="email" type="text" placeholder="email" />
+        <StyledInput name="password" type="password" placeholder="password" />
+        <StyledInput
+          name="confirm_password"
+          type="password"
+          placeholder="confirm_password"
+        />
+        <StyledInput name="first_name" type="text" placeholder="first name" />
+        <StyledInput name="last_name" type="text" placeholder="last name" />
+        <StyledButton type="submit">Sign Up</StyledButton>
+      </form>
+    </StyledSignUp>
   );
 };
 function mapStateToProps(state) {
